@@ -58,10 +58,10 @@
             
             [context save:&err];
             if(err){
-                NSLog(@"%s|%@", __PRETTY_FUNCTION__, err);
+                //gNSLog(@"%s|%@", __PRETTY_FUNCTION__, err);
             }
         }@catch (NSException *exception) {
-            NSLog(@"%s|%@", __PRETTY_FUNCTION__, exception);
+            //gNSLog(@"%s|%@", __PRETTY_FUNCTION__, exception);
             NSError *err = [NSError errorWithDomain:exception.reason code:0 userInfo:nil];
             [[query.modelkls restMapper] deupdateByServerError:err data:data restType:restType inContext:context query:query network_identifier:network_identifier network_cache_identifier:network_cache_identifier];
             if(err){
@@ -92,7 +92,7 @@
         return;
     }
     [[query.modelkls mainContext] performBlockOutOfOwnThread:^(NSManagedObjectContext *context) {
-        NSLog(@"%s|%@", __PRETTY_FUNCTION__, error);
+        //gNSLog(@"%s|%@", __PRETTY_FUNCTION__, error);
         [[query.modelkls restMapper] deupdateByServerError:error data:nil restType:restType inContext:context query:query network_identifier:nil network_cache_identifier:nil];
             [[NANetworkActivityIndicatorManager sharedManager] insert:identifier error:err.domain option:query.options];
         [context save:nil];

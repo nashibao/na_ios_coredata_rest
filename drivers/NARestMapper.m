@@ -23,7 +23,7 @@
              network_identifier:(NSString *)network_identifier
        network_cache_identifier:(NSString *)network_cache_identifier{
     
-    NSLog(@"%s|%@", __PRETTY_FUNCTION__, data);
+    //gNSLog(@"%s|%@", __PRETTY_FUNCTION__, data);
     [query.modelkls prepareData:data context:context];
     NSArray *items = nil;
     if([query.modelkls restCallbackName]){
